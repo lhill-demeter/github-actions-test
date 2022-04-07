@@ -1,9 +1,19 @@
 name: Actions workflow
 
 on:
-  repository_dispatch:
-    types:
-      - build
+  push:
+    branches:
+      - main
+      - 'feature/*'
+      - '!feature/ggeat2'
+    tags:
+      - "v1.*"
+      - "!v2.*"
+    paths:
+      - "**.js"
+  # repository_dispatch:
+  #   types:
+  #     - build
   # schedule:
   #   - cron: "0/5 * * * *"
   #   - cron: "0/6 * * * *"
